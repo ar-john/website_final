@@ -14,7 +14,7 @@ app.use("/public", express.static(__dirname + "/public"));
 
 
 const db = mysql.createConnection({
-    host: "34.170.243.152",
+    host: "",
     user: "",
     password: ""
 });
