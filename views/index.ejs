@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip</title>
+    <link rel="stylesheet" type="text/css" href="public/css/app.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    
+
+</head>
+<body>
+    <h1>Coin Flip Game</h1>
+    <h2>CSI 4160 - Dr. Bowers- Aaron Johnson & Malik Williams</h2>
+    <p>This game will flip a coin at the press of a button and send the results to our database. 
+        At the bottom of the screen you will see the most recent 10 records.
+    </p>
+
+    <div>
+        <img class="ui medium circular image" src="../public/img/money.png" />
+    </div>
+
+    <div>
+        <form action="/insertFlip" method="post">
+            <h3>Press to Flip</h3>
+            <button class="ui button" id="flipButton" type="button">Flip Coin</button>
+        </form>
+
+        <p> Result:<span id="resultspan"></span>  </p>
+    </div>
+
+    <div>
+        <table>
+            <th>Placeholder</th>
+            <td>for Sql table</td>
+        </table>
+    </div>
+    <script src="../public/js/coinFlip.js"></script>
+
+</body>
+</html>
