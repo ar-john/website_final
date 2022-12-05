@@ -14,9 +14,10 @@ app.use("/public", express.static(__dirname + "/public"));
 
 
 const db = mysql.createConnection({
-    host: "",
-    user: "",
-    password: ""
+    host: "34.170.243.152",
+    user: "root",
+    password: "root",
+    database: "csifinal"
 });
 
 db.connect((err) => {
@@ -25,21 +26,50 @@ db.connect((err) => {
     } else {
       console.log(`Successful connected to the DB....`);
     }
-  });
+});
 
 
 app.get("/", (req,res) => {
-    res.render("index");
+  let sql2 = `USE csifinal`;
+  
+    let query2 = db.query(sql2, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      // res.render("index");
+      console.log('using csifinal');
+      
+    });  
+  
+
+  res.render("index");
+});
+
+
+
+app.get("/viewDB", (req, res) => {
+  let sql2 = `SELECT * FROM coinflips;`;
+  
+    let query2 = db.query(sql2, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.render("index");
+      console.log(res);
+      
+    });
 });
 
 app.post("/insertflip", (req, res) => {
-    let sql = `INSERT ___ INTO FLIPS;`;
-    let query = db.query(sql, (err, result) => {
+
+  let sql = "INSERT INTO coinflips (result) VALUES ('heads')";
+    let query3 = db.query(sql, (err, result) => {
         if (err) {
-            throw err;
+          throw err;
         }
-        res.render("index", {data: result });
-    res.send('Flip added to DB');
+    res.render("index");
+      // res.send('Flip added to DB');
+    console.log('added');
     });
 });
 
